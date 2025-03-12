@@ -6,9 +6,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="bg-primary border-b-2 border-[rgba(0,0,0,0.12)]">
-      <header className="container mx-auto flex w-full items-center justify-center px-6 py-6 md:justify-between md:px-6 md:pt-10 md:pb-6 xl:px-20">
+      <header className="container mx-auto flex w-full items-center justify-center px-6 py-6 md:px-6 md:pt-10 md:pb-6 lg:justify-between xl:px-20">
         <h2 className="text-lg font-bold">Muhammad Aamish</h2>
-        <nav className="hidden md:flex">
+        <nav className="hidden lg:flex">
           <ul className="flex items-center md:gap-x-8 lg:gap-x-12">
             <li>
               <a href="#home">Home</a>
@@ -37,7 +37,7 @@ const Header = () => {
         </nav>
 
         <button
-          className="absolute top-6 left-6 text-2xl text-white md:hidden"
+          className="absolute top-6 left-6 text-2xl text-white lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
           <FaBars />
@@ -46,7 +46,7 @@ const Header = () => {
         <div
           className={`bg-primary fixed top-0 left-0 h-full w-64 p-6 shadow-lg transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "-translate-x-full"
-          } md:hidden`}
+          } lg:hidden`}
         >
           <button
             className="absolute top-5 right-5 text-2xl text-white"
@@ -86,18 +86,12 @@ const Header = () => {
                   document
                     .getElementById("form")
                     ?.scrollIntoView({ behavior: "smooth" });
+                  setIsOpen(false);
                 }}
               />
             </ul>
           </nav>
         </div>
-
-        {isOpen && (
-          <div
-            className="fixed inset-0 bg-black opacity-20 md:hidden"
-            onClick={() => setIsOpen(false)}
-          ></div>
-        )}
       </header>
     </div>
   );
